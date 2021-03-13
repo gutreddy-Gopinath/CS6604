@@ -1,0 +1,54 @@
+.ring {
+  display: flex;
+  width: 500px;
+  border: 1px solid;
+  flex-direction: column;
+  padding: 10px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  // border: 1px solid;
+  padding: 10px;
+}
+
+.nodes {
+  display: flex;
+  flex-direction: column;
+}
+.mss {
+  border-bottom: 1px solid;
+}
+.mhs {
+  margin: 10px;
+}
+.proxy-1,
+.proxy-2 {
+  border: 1px solid;
+  margin: 15px;
+}
+.local-queues,
+.replication-containers {
+  display: flex;
+  justify-content: space-between;
+}
+table,
+thead,
+tr,
+td,
+th {
+  border: 1px solid;
+}
+.replication-containers {
+  margin: 15px;
+}
+.mss-1-container,
+.mss-2-container,
+.mss-3-container,
+.mss-4-container {
+  border: 1px solid;
+  display: flex;
+}
+.mhs-container {
+  display: flex;
+}
