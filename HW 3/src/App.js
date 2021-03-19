@@ -2,13 +2,82 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 import Select from './select'; 
-/*import Tree from 'react-d3-tree';*/
+import Tree from 'react-d3-tree';
 
 function App() {
 
   const [enteredValue, setEnteredValue] = useState({ label: "", value: "" })
   const [requiredValue, setRequiredValue] = useState({ label: "", value: "" })
 
+  const straightPathFunc = (linkDatum, orientation) => {
+    const { source, target } = linkDatum;
+    return orientation === 'horizontal'
+      ? `M${source.y},${source.x}L${target.y},${target.x}`
+      : `M${source.x},${source.y}L${target.x},${target.y}`;
+  };
+
+  const handleNodeClick = (param) => {
+    console.log(param)
+  }
+
+  const users = {
+    "name": "I",
+    "children": [{
+      "name": "a1",
+      "children": [{
+        "name": "b1",
+        "children": [{
+          "name": "c1"
+        },{
+          "name": "c2"
+        },{
+          "name": "c3"
+        }]
+    }, 
+    {
+      "name": "b2",
+      "children": [{
+        "name": "c4"
+      },{
+        "name": "c5"
+      },{
+        "name": "c6"
+      }]
+    },
+    {
+      "name": "b3",
+      "children": [{
+        "name": "c7"
+      },{
+        "name": "c8"
+      },{
+        "name": "c9"
+      }]
+    },
+  ]
+  },{
+    "name": "a2",
+    "children": [{
+      "name": "5",
+      "children": [{
+        "name": "13"
+      },{
+        "name": "14"
+      },{
+        "name": "15"
+      }]
+  },{
+    "name": "6",
+    "children": [{
+      "name": "16"
+    },{
+      "name": "17"
+    },{
+      "name": "18"
+    }]
+  }]
+  }]
+  }
   let i = [
     { label:'a1',start:0, end:26, data:[
       {
@@ -120,13 +189,22 @@ console.log(path);
   
   return (
     <div className="App">
+      
       Entered Value:
       <Select onChange={setEnteredValue} options={getBroadCastOptions()} />
       <br/>
       Required Value:
       <Select onChange={setRequiredValue} options={getBroadCastOptions()} />
       <br/>
-      In Entire Path Replication: {path.join(' -> ')}
+      In Entire Path Replication: {requiredValue.value ? path.join(' -> '):'' }
+
+      <Tree
+            data={users}
+            orientation="vertical"
+            pathFunc={straightPathFunc}
+            onNodeClick={handleNodeClick}
+            /*separation={{nonSiblings: 1, siblings: 1}}*/
+          />
     </div>
   );
 }
