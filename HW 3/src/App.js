@@ -24,6 +24,7 @@ function App() {
         console.log(param)
     }
     const showPointer = () => {
+
         if (getModeOptions.value == "ENTIRE_PATH") {
             let search = requiredValue.value;
             let path = ['i'];
@@ -367,6 +368,8 @@ function App() {
 
     let search = requiredValue.value;
     let path = ['i'];
+
+    // comment this section out when button is working this is the full path section
     for (let j = 0; j < i.length; j++) {
         let row = i[j];
         // which a - 1, 2, 3
@@ -393,6 +396,7 @@ function App() {
             break;
         }
     }
+    // comment this section out when button is working this is the 'hard coded' full path section
 
     let searchj = requiredValue.value;
     let pathj = ['j'];
@@ -445,6 +449,9 @@ function App() {
                         <label>Select Mode</label>
                         <Select value={mode} onChange={setMode} options={getModeOptions()} />
                     </div>
+                    <div className="test2">
+                        <label>Test2</label>
+                        </div>
         Entered Value:
         <Select onChange={setEnteredValue} options={getBroadCastOptions()} />
                     <br />
