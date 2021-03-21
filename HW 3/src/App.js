@@ -3,11 +3,15 @@ import './App.css';
 import {useState} from 'react';
 import Select from './select'; 
 import Tree from 'react-d3-tree';
+import { Header, Button, Input } from 'semantic-ui-react'
+
 
 function App() {
 
   const [enteredValue, setEnteredValue] = useState({ label: "", value: "" })
   const [requiredValue, setRequiredValue] = useState({ label: "", value: "" })
+  const [mode, setMode] = useState({ label: "", value: "" })
+  const [pa,setPath] = useState()
 
   const straightPathFunc = (linkDatum, orientation) => {
     const { source, target } = linkDatum;
@@ -19,61 +23,167 @@ function App() {
   const handleNodeClick = (param) => {
     console.log(param)
   }
+  const showPointer = () => {
+    let search = requiredValue.value;
+      let path = ['i'];
+      for (let j = 0; j <i.length; j++) {
+          let row = i[j];
+          // which a - 1, 2, 3
+          if (row.start <= search && row.end >= search) {
+              path.push(row.label);
 
-  const users = {
+              for (let k =0; k<row.data.length; k++) {
+                  let row2 = row.data[k];
+                  if (row2.start <= search && row2.end >= search) {
+                      path.push(row2.label);
+
+                      for (let l =0; l<row.data.length; l++) {
+                          let row3 = row2.data[l];
+                          if (row3.start <= search && row3.end >= search) {
+                              path.push(row3.label);
+                              break;
+                          }
+                      }
+
+                      break;
+                  }
+              }
+
+              break;
+          }
+      }
+      //setPath(path.join(' -> '))
+      //In Entire Path Replication: {requiredValue.value ? path.join(' -> '):'' }
+
+    
+  }
+  const getModeOptions = () => {
+    return [{
+      label: "Entire Path Replication",
+      value: "ENTIRE_PATH"
+    },{
+      label: "Partila Path Replication",
+      value: "PARTIAL_PATH"
+    },
+    ]
+  }
+  const dataIndex = {
     "name": "I",
     "children": [{
       "name": "a1",
       "children": [{
         "name": "b1",
         "children": [{
-          "name": "c1"
+          "name": "c1",
+          "children":[{
+            "name": "0",
+          },{
+            "name": "1",
+          },{
+            "name": "2",
+          }]
         },{
-          "name": "c2"
+          "name": "c2",
+          "children":[{
+            "name": "3",
+          },{
+            "name": "4",
+          },{
+            "name": "5",
+          }]
         },{
-          "name": "c3"
+          "name": "c3",
+          "children":[{
+            "name": "6",
+          },{
+            "name": "7",
+          },{
+            "name": "8",
+          }]
         }]
     }, 
     {
       "name": "b2",
       "children": [{
-        "name": "c4"
+        "name": "c4",
+        "children":[{
+          "name": "9",
+        },{
+          "name": "10",
+        },{
+          "name": "11",
+        }]
       },{
-        "name": "c5"
+        "name": "c5",
+        "children":[{
+          "name": "12",
+        },{
+          "name": "13",
+        },{
+          "name": "14",
+        }]
       },{
-        "name": "c6"
+        "name": "c6",
+        "children":[{
+          "name": "15",
+        },{
+          "name": "16",
+        },{
+          "name": "17",
+        }]
       }]
     },
     {
       "name": "b3",
       "children": [{
-        "name": "c7"
+        "name": "c7",
+        "children":[{
+          "name": "18",
+        },{
+          "name": "19",
+        },{
+          "name": "20",
+        }]
       },{
-        "name": "c8"
+        "name": "c8",
+        "children":[{
+          "name": "21",
+        },{
+          "name": "22",
+        },{
+          "name": "23",
+        }]
       },{
-        "name": "c9"
+        "name": "c9",
+        "children":[{
+          "name": "24",
+        },{
+          "name": "25",
+        },{
+          "name": "26",
+        }]
       }]
     },
   ]
   },{
     "name": "a2",
     "children": [{
-      "name": "5",
+      "name": "b4",
       "children": [{
-        "name": "13"
+        "name": "c10"
       },{
-        "name": "14"
+        "name": "c11"
       },{
-        "name": "15"
+        "name": "c12"
       }]
   },{
-    "name": "6",
+    "name": "b5",
     "children": [{
-      "name": "16"
+      "name": "c13"
     },{
-      "name": "17"
+      "name": "c14"
     },{
-      "name": "18"
+      "name": "c15"
     }]
   }]
   }]
@@ -143,35 +253,34 @@ function App() {
 
 
 ]
-
 let search = requiredValue.value;
-let path = ['i'];
-for (let j = 0; j <i.length; j++) {
-    let row = i[j];
-    // which a - 1, 2, 3
-    if (row.start <= search && row.end >= search) {
-        path.push(row.label);
+      let path = ['i'];
+      for (let j = 0; j <i.length; j++) {
+          let row = i[j];
+          // which a - 1, 2, 3
+          if (row.start <= search && row.end >= search) {
+              path.push(row.label);
 
-        for (let k =0; k<row.data.length; k++) {
-            let row2 = row.data[k];
-            if (row2.start <= search && row2.end >= search) {
-                path.push(row2.label);
+              for (let k =0; k<row.data.length; k++) {
+                  let row2 = row.data[k];
+                  if (row2.start <= search && row2.end >= search) {
+                      path.push(row2.label);
 
-                for (let l =0; l<row.data.length; l++) {
-                    let row3 = row2.data[l];
-                    if (row3.start <= search && row3.end >= search) {
-                        path.push(row3.label);
-                        break;
-                    }
-                }
+                      for (let l =0; l<row.data.length; l++) {
+                          let row3 = row2.data[l];
+                          if (row3.start <= search && row3.end >= search) {
+                              path.push(row3.label);
+                              break;
+                          }
+                      }
 
-                break;
-            }
-        }
+                      break;
+                  }
+              }
 
-        break;
-    }
-}
+              break;
+          }
+      }
 
 console.log(path);
 
@@ -189,22 +298,43 @@ console.log(path);
   
   return (
     <div className="App">
+      <div className="App-div" style={{ margin: '15px', padding: '15px', display: 'flex' }}>
+        <div style={{ width: "30%", height: '100vh', borderRight: '1px solid silver' }}>
+        <div className="select-cache">
+            <label>Select Mode</label>
+            <Select value={mode} onChange={setMode} options={getModeOptions()} />
+        </div>
+        Entered Value:
+        <Select onChange={setEnteredValue} options={getBroadCastOptions()} />
+        <br/>
+        Required Value:
+        <Select onChange={setRequiredValue} options={getBroadCastOptions()} />
+        <br/>
+        
+        {mode.value === "ENTIRE_PATH" && <div>
+            <div className="select-cache cache-buttons">
+              <Button primary onClick={showPointer}>Show Direction</Button>
+            </div>
+          </div>}
+        {mode.value === "PARTIAL_PATH" && <div>
+            <div className="select-cache cache-buttons">
+              <Button primary onClick={showPointer}>Show Direction</Button>
+            </div>
+          </div>}
+          In Entire Path Replication: {requiredValue.value ? path.join(' -> '):'' }
+        </div>
+        
+        <div style={{ width: '70%', height: '100em' }}>
+        <Tree
+              data={dataIndex}
+              orientation="vertical"
+              pathFunc={straightPathFunc}
+              onNodeClick={handleNodeClick}
+            />
+        </div>
       
-      Entered Value:
-      <Select onChange={setEnteredValue} options={getBroadCastOptions()} />
-      <br/>
-      Required Value:
-      <Select onChange={setRequiredValue} options={getBroadCastOptions()} />
-      <br/>
-      In Entire Path Replication: {requiredValue.value ? path.join(' -> '):'' }
-
-      <Tree
-            data={users}
-            orientation="vertical"
-            pathFunc={straightPathFunc}
-            onNodeClick={handleNodeClick}
-            /*separation={{nonSiblings: 1, siblings: 1}}*/
-          />
+    </div>
+     
     </div>
   );
 }
