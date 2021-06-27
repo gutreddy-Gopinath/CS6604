@@ -1,0 +1,4 @@
+<aura:component controller="updateCheckBoxPlan" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:attribute name="updateCheckBox" type="Account" default="{'sobjectType':'Account'}"/>
+	<lightning:button variant="brand" label="Update A Check Box As True" onclick="{!c.updateCheck11}"  />
+</aura:component>

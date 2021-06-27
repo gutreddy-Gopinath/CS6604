@@ -1,0 +1,24 @@
+<template>
+<div class="slds-p-around_medium lgc-bg">
+            <lightning-tile label="Basic Calculator" href="/path/to/somewhere">
+                
+            </lightning-tile>
+        </div>
+    <lightning-input type="number" label="Number A" value={valueA} onchange={handleNumberOneChange}></lightning-input>
+    <lightning-input type="number" label="Number B" value={valueB} onchange={handleNumberTwoChange}></lightning-input>
+    
+    
+    <p>
+    <lightning-button-group>
+            <lightning-button label="Add" variant="brand" onclick={onClickAdd}></lightning-button>
+            <lightning-button label="Subtraction" variant="brand" onclick={onClickSub}></lightning-button>
+            <lightning-button label="Multiplication" variant="brand" onclick={onClickMul}></lightning-button>
+            <lightning-button label="Division" variant="destructive" icon-name="utility:delete" onclick={onClickDiv}></lightning-button>
+        </lightning-button-group>
+   
+    </p>
+    <div class="slds-box slds-theme_shade">  
+     <b>Output value is : </b>  
+      <P>{result}</p>  
+   </div>  
+</template>

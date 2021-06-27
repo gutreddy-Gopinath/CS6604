@@ -1,0 +1,11 @@
+<template>
+    <lightning-input type="checkbox"
+                     label="Show My Cities"
+                     onchange={showCities}>
+    </lightning-input>
+    <template if:true={displayCities}>
+    <template for:each ={listCities} for:item="cityName">
+        <p key = {cityName.Id}>{cityName.Id}.{cityName.Name}</p>
+    </template>
+    </template>
+</template>

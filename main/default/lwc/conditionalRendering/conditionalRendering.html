@@ -1,0 +1,12 @@
+<template>
+    <lightning-input type="checkbox"
+                     label="Is it available?"
+                     onchange={showAvailable}>
+    </lightning-input>
+    <template if:true ={checkAvailability}>
+        <div>yes I am available</div>
+    </template>
+    <template if:false ={checkAvailability}>
+        <div>No I am not available</div>
+    </template>
+</template>

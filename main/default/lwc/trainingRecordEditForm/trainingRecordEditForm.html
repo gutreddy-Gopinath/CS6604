@@ -1,0 +1,24 @@
+<!--<template>
+    <lightning-card title="RecordFormStaticContact" icon-name="standard:contact">
+    <lightning-record-form record-id={recordId} object-api-name={objectApiName}
+        fields={fields} columns="2" mode="edit" onsubmit={handleSubmit}>
+    </lightning-record-form>
+    </lightning-card>
+</template> -->
+
+<template>
+    Hello Gopinath 
+    <lightning-card
+        title="RecordFormStaticContact"
+        icon-name="standard:contact"
+    >
+        <div class="slds-m-around_medium">
+            <lightning-record-form
+                object-api-name={objectApiName}
+                record-id={recordId}
+                fields={fields}
+            ></lightning-record-form>
+        </div>
+
+    </lightning-card>
+</template>

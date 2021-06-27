@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Create and View Account">
+            <lightning-layout >
+                <lightning-layout-item size="6" padding="around-small">
+                    <p>Create Account</p>
+                    <lightning-record-edit-form object-api-name="Account" onsuccess={handleSuccess}>
+                        <div class="slds-m-around_medium">
+                            <lightning-input-field field-name='Name'></lightning-input-field>
+                            <lightning-input-field field-name='Phone'></lightning-input-field>
+                            <lightning-input-field field-name='Site'></lightning-input-field>
+                            <div class="slds-m-top_medium">
+                                <lightning-button variant="brand" type="submit" name="save" label="Save">
+                                </lightning-button>
+                        </div>
+                    </div>
+                    </lightning-record-edit-form>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="6" padding="around-small">
+                    <p>View Account</p>
+                    <lightning-record-view-form record-id={recordId} object-api-name="Account">
+                        <lightning-output-field field-name="Name"></lightning-output-field>
+                        <lightning-output-field field-name="Phone"></lightning-output-field>
+                        <lightning-output-field field-name="Site"></lightning-output-field>
+                    </lightning-record-view-form>                        
+                </lightning-layout-item>
+            </lightning-layout>
+    </lightning-card>
+</template>

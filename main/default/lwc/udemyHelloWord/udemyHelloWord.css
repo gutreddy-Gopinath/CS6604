@@ -1,0 +1,11 @@
+.Greeting {
+    color: blue;
+}
+
+div{
+    border: 3px solid chartreuse;
+}
+
+:host{
+    border:3px solid crimson;
+}
