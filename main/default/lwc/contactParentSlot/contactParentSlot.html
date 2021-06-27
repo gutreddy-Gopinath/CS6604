@@ -1,0 +1,47 @@
+<template>
+    <lightning-card title="SLOTS in LWC Implementation (contactList.html)">
+        <div class="slds-p-around_xx-small">
+            <div class="flex-container" style="display: flex;">
+                <!--<c-contact-child-slot>
+                    <h2 slot="heading" class="slds-text-heading_large">Gopinath</h2>
+                    <p slot="contactInfo">Website: https://gutreddy.com</p>
+                    <p>This is the Slot without Name for Gopinath</p>
+                    <p slot="componentName" class="slds-align_absolute-center">
+                        <strong>contact.html</strong>
+                    </p>
+                </c-contact-child-slot>
+                <c-contact-child-slot>
+                    <h2 slot="heading" class="slds-text-heading_medium">Cristiano Ronaldo</h2>
+                    <p slot="contactInfo">Email: cronado@cr7.com</p>
+                    <p>This is the Slot without Name for Cristiano Ronaldo</p>
+                    <p slot="componentName" class="slds-align_absolute-center">
+                        <strong>contact.html</strong>
+                    </p>
+                </c-contact-child-slot>
+                <c-contact-child-slot>
+                    <h2 slot="heading" class="slds-text-heading_small">Lionel Messi</h2>
+                    <p slot="contactInfo">Phone: 09999999999</p>
+                    <p>This is the Slot without Name for Lionel Messi</p>
+                    <p slot="componentName" class="slds-align_absolute-center">
+                        <strong>contact.html</strong>
+                    </p>
+                </c-contact-child-slot>-->
+                <template for:each={employeeDetails} for:item="oneEmployee">
+                    <li key={oneEmployee.Name}>
+                        <c-contact-child-slot>
+                            <lightning-tile slot="heading">Name:{oneEmployee.Name}
+                                <!--<p class="slds-truncate" title={oneEmployee.Name}>Room Capacity: {oneEmployee.Name}</p>-->
+                            </lightning-tile>
+                            <lightning-tile slot="contactInfo">Phone or Email:{oneEmployee.Phone}
+                                <!--<p class="slds-truncate" title={oneEmployee.Name}>Room Capacity: {oneEmployee.Name}</p>-->
+                            </lightning-tile>
+                            <lightning-tile slot="componentName">Component Name:{oneEmployee.componentName}
+                                <!--<p class="slds-truncate" title={oneEmployee.Name}>Room Capacity: {oneEmployee.Name}</p>-->
+                            </lightning-tile>
+                        </c-contact-child-slot>
+                    </li>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

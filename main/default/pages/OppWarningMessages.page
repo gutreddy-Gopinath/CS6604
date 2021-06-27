@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity">
+    <apex:pageMessage summary="Need Analysis Warning" 
+                      severity="info" 
+                      strength="3"
+                      rendered="{!IF(Opportunity.StageName = 'Needs Analysis',TRUE,FALSE)}"/>
+</apex:page>

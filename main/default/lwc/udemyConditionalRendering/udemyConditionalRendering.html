@@ -1,0 +1,26 @@
+<template>
+    <lightning-input type="checkbox" label="Do you want to enter the details?" onchange={getthevalues}></lightning-input>
+    <template if:true={Condition} >
+        <div>Enter the Details Below: </div>
+        <lightning-input label="Name" onchange={NameCapture}></lightning-input> 
+        <div>    </div>
+        <div style="color: red ; background: white; ">My Details:</div>
+        <div class="Name">Name: {Name}</div>
+        <h1>Below is the example with Iterator</h1>
+        <template iterator:it={arrayCity}>
+            <p key={it.value}>{it.value}</p>
+        </template>
+    </template>
+    <template for:each={arrayCity} for:item="city">
+        <p key={city}>{city}</p>
+    </template>
+    
+    <h1>Below is the example with Iterator</h1>
+    <template iterator:it={arrayCity}>
+        <p key={it.value}>{it.value}</p>
+    </template>
+
+    <template if:false={Condition}>
+        <div> Enter you city :</div>
+    </template>
+</template>

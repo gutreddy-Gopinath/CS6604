@@ -1,0 +1,27 @@
+<template>
+    
+        <lightning-card title={cardTitle}>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item >
+                <lightning-input type="number" step="0.01" label="Enter Weight in Kilogram" onchange={WeightHandler}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item >
+                <lightning-input type="number" step="0.01" label="Enter Height in Meter" onchange={HeightHandler}></lightning-input>
+            </lightning-layout-item>
+            
+            <lightning-layout-item >
+                <lightning-button label="Calculate My BMI" onclick={BMIHandler}></lightning-button>    
+            </lightning-layout-item>
+           
+            <lightning-layout-item >
+                <p>
+                    Your BMI is: {bmiData.Result}
+                </p>
+            </lightning-layout-item>
+           
+ 
+        </lightning-layout>
+        </lightning-card>  
+    
+      
+</template>

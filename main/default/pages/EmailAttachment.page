@@ -1,0 +1,28 @@
+<apex:page controller="CurrentRecordIdDemoController" sidebar="false" showHeader="false">    
+    <center>
+        <P style="font-size:22px;"><u>Send PDF as Attachment in Visualforce</u></P>
+        <input type="text" value="" id="txtEmailAddress"/><br/><br/>
+        <input type="button" onclick="SendEmailAttachment();" value="Send"/>
+    </center>
+    <script>
+    function SendEmailAttachment(){
+        var AccountId = '{!$CurrentPage.parameters.Id}';
+        var emailAddress=document.getElementById('txtEmailAddress').value;
+        if(emailAddress!=null && emailAddress!=''){
+            TestHandler.SendAttachment(emailAddress,AccountId,function(result,event){
+                if(event.status){
+                    if(result=='SUCCESS'){
+                        alert('Email sent successfully.');
+                    }
+                    else{
+                        alert(result);
+                    }
+                }
+            })
+        }
+        else{
+            alert('Please provide email address!');
+        }
+    }
+    </script>
+ </apex:page>

@@ -1,0 +1,23 @@
+<template>
+    <!--<lightning-card title="Seach Car Type">-->
+        <lightning-layout horizontal-align="center">
+            <lightning-layout-item padding="around-small">
+                <lightning-combobox
+                    name="carTypes"
+                    label="Select Type:"
+                    value={selectedValue}
+                    placeholder="select car type"
+                    options={carTypes}
+                    onchange={handleCarTypeChange} >
+                </lightning-combobox>
+                
+                <lightning-layout-item>
+                    <p><lightning-button variant="brand" label="New" 
+                    title="Primary action" 
+                    onclick={createNewCarType}></lightning-button></p>
+                </lightning-layout-item>
+                
+            </lightning-layout-item>
+        </lightning-layout>
+    <!--</lightning-card>-->
+</template>

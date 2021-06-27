@@ -1,0 +1,13 @@
+<template>
+    <ul>
+        <template for:each={meetingRoomInfo} for:item="singleRoom">
+            <li key={meetingRoomInfo.roomName}>
+                <c-public-child >
+                    <lightning-tile label={singleRoom.roomName} href="/path/to/somewhere" slot="roomInfo">Room Name: {singleRoom.roomName}
+                        <p class="slds-truncate" title={singleRoom.roomName}>Room Capacity: {singleRoom.roomCapacity}</p>
+                    </lightning-tile>
+                </c-public-child>
+            </li>
+        </template>
+    </ul>
+</template>

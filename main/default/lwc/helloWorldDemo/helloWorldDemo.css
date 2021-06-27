@@ -1,0 +1,11 @@
+.HelloWorld-class{
+    color:green;
+}
+
+div{
+    border: 3px solid red;
+}
+
+:host{
+    border: 3px solid blue;
+}

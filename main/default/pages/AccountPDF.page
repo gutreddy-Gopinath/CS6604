@@ -1,0 +1,22 @@
+<apex:page controller="sendEmail" renderAs="pdf">
+    <div style="text-align:center; padding-bottom: 15px;">
+     <apex:image url="{!$Resource.MyImage}" style=" width:50%; height:auto"/>   
+    </div>
+    
+    <body>
+         <table style="table-layout: auto;"> 
+            <tr>
+                <th style="height: 50px;text-decoration: underline;">Account Information:</th>
+            </tr>
+                 
+            <tr>
+                <th>Account Name:</th>
+                <td><apex:outputText style="text-decoration: underline; text-align: left; height: 50px;" value="{!accName}"/></td>
+                <th>Acc Description:</th>
+                <td><apex:outputText style="text-decoration: underline; text-align: left; height: 50px;" value="{!accDesc}"/></td>
+            </tr>
+        </table>
+        
+   </body> 
+   
+</apex:page>

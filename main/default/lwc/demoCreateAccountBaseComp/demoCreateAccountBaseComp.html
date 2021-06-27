@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Create and View Account from Base component">
+        <div>
+            <lightning-record-form
+                record-id={recordId}
+                object-api-name="Account"
+                fields={fieldArray}
+                columns="2"
+                
+                mode="edit"
+                onsubmit={handleSubmit}>
+            </lightning-record-form>
+        </div>
+    </lightning-card>
+</template>
